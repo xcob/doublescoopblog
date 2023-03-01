@@ -1,15 +1,19 @@
 import { Fragment } from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { getDatabase, getPage, getBlocks } from "../lib/notion";
 import Link from "next/link";
 import { databaseId } from "./index.js";
 import styles from "./post.module.css";
 
+
 export const Text = ({ text }) => {
+  
   if (!text) {
     return null;
   }
   return text.map((value) => {
+       
     const {
       annotations: { bold, code, color, italic, strikethrough, underline },
       text,
@@ -26,7 +30,7 @@ export const Text = ({ text }) => {
         style={color !== "default" ? { color } : {}}
         key={text.content}
       >
-        {text.link ? <a href={text.link.url}>{text.content}</a> : text.content}
+        {text.link ? <a href={text.link.url} className={styles.postLink}>{text.content}</a> : text.content}
       </span>
     );
   });
@@ -211,6 +215,19 @@ export default function Post({ page, blocks }) {
         <title>{page.properties.Name.title[0].plain_text}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.container}>
+        <header className={styles.header}>
+          <div className={styles.logos}>
+            <Image 
+            src="/the-double-scoop.png"
+            width={500}
+            height={250}
+            alt="double scoop logo"
+            />
+          </div>
+        </header>
+      </div>
+      
 
       <article className={styles.container}>
         <h1 className={styles.name}>
@@ -220,7 +237,7 @@ export default function Post({ page, blocks }) {
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/" className={styles.back}>
+          <Link href="/" className={styles.postLink}>
             ← Go home
           </Link>
         </section>
@@ -242,6 +259,7 @@ export const getStaticProps = async (context) => {
   const page = await getPage(id);
   const blocks = await getBlocks(id);
 
+  console.log(page)
   return {
     props: {
       page,
@@ -249,4 +267,5 @@ export const getStaticProps = async (context) => {
     },
     revalidate: 1,
   };
+
 };

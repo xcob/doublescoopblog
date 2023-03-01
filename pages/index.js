@@ -9,7 +9,7 @@ export const databaseId = process.env.NOTION_DATABASE_ID;
 
 export default function Home({ posts }) {
   return (
-    <div>
+    <div id="bgMain">
       <Head>
         <title>The Double Scoop</title>
         <link rel="icon" href="/favicon.ico" />
@@ -21,7 +21,8 @@ export default function Home({ posts }) {
             <Image 
             src="/the-double-scoop.png"
             width={500}
-            height={500}
+            height={250}
+            alt="double scoop logo"
             />
           </div>
           <h1>The Double Scoop</h1>
@@ -33,7 +34,8 @@ export default function Home({ posts }) {
         <h2 className={styles.heading}>All Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
-            const date = new Date(post.last_edited_time).toLocaleString(
+            //console.log(post)
+            const date = new Date(post.properties.Date.date.start).toLocaleString(
               "en-US",
               {
                 month: "short",
@@ -50,7 +52,7 @@ export default function Home({ posts }) {
                 </h3>
 
                 <p className={styles.postDescription}>{date}</p>
-                <Link href={`/${post.id}`}>Read post →</Link>
+                <Link href={`/${post.id}`} className={styles.postLink}>Read post →</Link>
               </li>
             );
           })}
@@ -62,6 +64,7 @@ export default function Home({ posts }) {
 
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
+  
 
   return {
     props: {
