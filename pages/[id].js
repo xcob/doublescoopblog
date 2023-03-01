@@ -30,7 +30,7 @@ export const Text = ({ text }) => {
         style={color !== "default" ? { color } : {}}
         key={text.content}
       >
-        {text.link ? <a href={text.link.url} className={styles.postLink}>{text.content}</a> : text.content}
+        {text.link ? <a href={text.link.url} className={styles.postLink} target="_blank">{text.content}</a> : text.content}
       </span>
     );
   });
