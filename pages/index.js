@@ -35,6 +35,7 @@ export default function Home({ posts }) {
         <ol className={styles.posts}>
           {posts.map((post) => {
             //console.log(post)
+            const src = post.cover.external.url;
             const date = new Date(post.properties.Date.date.start).toLocaleString(
               "en-US",
               {
@@ -47,6 +48,14 @@ export default function Home({ posts }) {
               <li key={post.id} className={styles.post}>
                 <h3 className={styles.postTitle}>
                   <Link href={`/${post.id}`}>
+                    <img 
+                      src={src}
+                      width="425"
+                      height="250"
+                      alt="post image"
+                    />
+                    <br />
+                    <br />
                     <Text text={post.properties.Name.title} />
                   </Link>
                 </h3>
@@ -64,7 +73,7 @@ export default function Home({ posts }) {
 
 export const getStaticProps = async () => {
   const database = await getDatabase(databaseId);
-  
+  //console.log(database)
 
   return {
     props: {
