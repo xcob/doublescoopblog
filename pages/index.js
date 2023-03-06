@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getDatabase } from "../lib/notion";
 import { Text } from "./[id].js";
 import styles from "./index.module.css";
+import NewsletterSignUp from "./newsletterForm";
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
@@ -36,7 +37,7 @@ export default function Home({ posts }) {
           {posts.map((post) => {
             //console.log(post)
             const src = post.cover.external.url;
-            const date = new Date(post.properties.Date.date.start).toLocaleString(
+            const date = new Date(post.properties.Date.date).toLocaleString(
               "en-US",
               {
                 month: "short",
@@ -66,6 +67,7 @@ export default function Home({ posts }) {
             );
           })}
         </ol>
+        <NewsletterSignUp />
       </main>
     </div>
   );
