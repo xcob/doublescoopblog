@@ -37,7 +37,7 @@ export default function Home({ posts }) {
           {posts.map((post) => {
             //console.log(post)
             const src = post.cover.external.url;
-            const date = new Date(post.properties.Date.date).toLocaleString(
+            const date = new Date(post.properties.Date.date.start).toLocaleString(
               "en-US",
               {
                 month: "short",
@@ -68,7 +68,7 @@ export default function Home({ posts }) {
           })}
         </ol>
         <div>
-          <NewsletterSignUp />
+            <NewsletterSignUp />
         </div>
       </main>
     </div>
