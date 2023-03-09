@@ -51,9 +51,9 @@ export default function Home({ posts }) {
                   <Link href={`/${post.id}`}>
                     <img 
                       src={src}
-                      width="425"
-                      height="250"
-                      alt="post image"
+                      fill 
+                      width={475}
+
                     />
                     <br />
                     <br />
@@ -67,7 +67,9 @@ export default function Home({ posts }) {
             );
           })}
         </ol>
-        <NewsletterSignUp />
+        <div>
+          <NewsletterSignUp />
+        </div>
       </main>
     </div>
   );
