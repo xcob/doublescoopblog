@@ -1,6 +1,6 @@
 The Double Scoop is a bi-weekly newsletter where you’ll find any noteworthy updates on guitars and gear.
 
-[DOuble Scoop Blog](https://doublescoopblog.vercel.app/)
+[Double Scoop Blog](https://doublescoopblog.vercel.app/)
 
 This is a [Next.js](https://nextjs.org/) blog using [Notions Public API](https://developers.notion.com) forked from [samuelkrafts](https://github.com/samuelkraft/notion-blog-nextjs) Notion Blog with NextJS. 
 
