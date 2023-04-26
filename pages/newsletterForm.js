@@ -1,5 +1,6 @@
 export default function NewsletterSignUp(){
     return(
+        <div id="subscribe">
         <iframe 
             width="540" 
             height="305" 
@@ -10,6 +11,7 @@ export default function NewsletterSignUp(){
             style={{display: "flex",marginLeft:"auto", marginRight: "auto", maxWidth: "100%;", height: "350px"}}>
 
         </iframe>
+        </div>
         
         );
 }

@@ -30,12 +30,13 @@ export default function Home({ posts }) {
           <p>
             Check out the articles below!
           </p>
+          <a href="#subscribe" className={styles.subscribeButton}> Subscribe!</a>
         </header>
 
         <h2 className={styles.heading}>All Posts</h2>
         <ol className={styles.posts}>
           {posts.map((post) => {
-            //console.log(post)
+            console.log(post)
             const src = post.cover.external.url;
             const date = new Date(post.properties.Date.date.start).toLocaleString(
               "en-US",
