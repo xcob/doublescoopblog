@@ -5,6 +5,7 @@ import { getDatabase } from "../lib/notion";
 import { Text } from "./[id].js";
 import styles from "./index.module.css";
 import NewsletterSignUp from "./newsletterForm";
+import { Analytics } from '@vercel/analytics/react';
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
@@ -72,7 +73,10 @@ export default function Home({ posts }) {
             <NewsletterSignUp />
         </div>
       </main>
+      
+      <Analytics />
     </div>
+    
   );
 }
 
