@@ -16,7 +16,7 @@ export default function Home({ posts }) {
         <title>The Double Scoop</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
+      <body>
       <main className={styles.container}>
         <header className={styles.header}>
           <div className={styles.logos}>
@@ -73,8 +73,10 @@ export default function Home({ posts }) {
             <NewsletterSignUp />
         </div>
       </main>
-      
       <Analytics />
+
+      </body>
+      
     </div>
     
   );
